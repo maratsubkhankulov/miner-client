@@ -1,21 +1,21 @@
-package io.github.maratsubkhankulov.miner.entities;
+package io.github.maratsubkhankulov.miner.entities
 
-import java.math.BigInteger;
+import java.math.BigInteger
 
 /**
  * Created by msubkhankulov on 5/6/18.
  */
 
-public class BlockHeader {
-    public Long version;
-    public String prevBlockhash;
-    public String merkleRoot;
-    public Long timestamp;
-    public Long difficultyTarget;
-    public Long nonce;
+class BlockHeader {
+    var version: Long? = null
+    var prevBlockhash: String? = null
+    var merkleRoot: String? = null
+    var timestamp: Long? = null
+    var difficultyTarget: Long? = null
+    var nonce: Long? = null
 
-    public byte[] toByteArray() {
-        return new byte[80];
+    fun toByteArray(): ByteArray {
+        return ByteArray(80)
         /*
 
         blockHeader.version = BigInteger.valueOf(536870912).toByteArray()
