@@ -16,13 +16,13 @@ import org.junit.runner.RunWith
  * See [testing documentation](http://d.android.com/tools/testing).
  */
 @RunWith(AndroidJUnit4::class)
-class ServiceTest {
+class ServiceTestRx {
     @Test
     fun apiServiceFetchWork() {
         val service = ApiClientService()
 
         Log.d("TEST", "Test string")
-        var single : Single<Job> = service.getWorkRx()
+        var single : Single<Job> = service.workRx
         var observer: TestObserver<Job> = single.test()
         observer.awaitTerminalEvent()
 

@@ -7,16 +7,24 @@ import java.math.BigInteger;
  */
 
 public class BlockHeader {
-    public BigInteger version;
+    public Long version;
     public String prevBlockhash;
     public String merkleRoot;
-    public BigInteger timestamp;
-    public Integer difficultyTarget;
-    public Integer nonce;
+    public Long timestamp;
+    public Long difficultyTarget;
+    public Long nonce;
 
     public byte[] toByteArray() {
         return new byte[80];
         /*
+
+        blockHeader.version = BigInteger.valueOf(536870912).toByteArray()
+        blockHeader.prevBlockhash = Hex.decode("0000000000000000003729BFA376E4148EE0643CE834053D885AF5699440D6D2")
+        blockHeader.merkleRoot = Hex.decode("DD6902C19AFA94D68A5060D95C82DDA188F234B7B980279AD47344107201F041")
+        blockHeader.timestamp = BigInteger.valueOf(1525421373).toByteArray()
+        blockHeader.difficultyTarget = Hex.decode("1745FB53")
+        blockHeader.nonce = BigInteger.valueOf(3225537244).toByteArray()
+
         val data = ByteArray(blockVersionNumber.size + hashPrevBlock.size + hashMerkleRoot.size + timestamp.size + bits.size + nonce.size)
         var offset = 0
 

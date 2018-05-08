@@ -3,7 +3,6 @@ package io.github.maratsubkhankulov.miner
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import io.github.maratsubkhankulov.miner.entities.Job
-import org.bouncycastle.util.encoders.Hex
 import java.math.BigInteger
 import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit
@@ -26,9 +25,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun run(service: ApiClientService, solver: Solver) {
-        var job: Job = service.work
+        var job: Job = service.work!!
         var nonce = job.blockHeader.nonce
-        var nonceRange = job.nonceRange
+        var nonceRange : Int = job.nonceRange
         var data = job.blockHeader.toByteArray()
 
         for (i in 1..nonceRange) {
